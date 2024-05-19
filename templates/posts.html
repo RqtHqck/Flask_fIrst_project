@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+
+{%block title%}
+App|posts
+{%endblock%}
+
+{%block body%}
+<div class='container mt-5'>
+    <h1>POSTS PAGE</h1>
+    {%if articles|length > 0%}
+        {% for article in articles %}
+        <div class="alert alert-info">
+            <h2>Тема: {{article.title}}</h2>
+            <h4>{{article.intro}}</h4>
+            <h4>Время: {{ article.date.strftime(' %H:%M ') }}</h4>
+            <h4>Дата: {{ article.date.strftime(' %d/%m/%Y') }}</h4>
+            <a href="/posts/{{article.id}}" class="btn btn-warning">Детали</a>
+            <br>
+        </div>
+
+        {%endfor%}
+    {%else%}
+        <h1>ПОКА ЧТО НЕТ НИКАКИХ СТАТЕЙ</h1>
+    {%endif%}
+</div>
+{%endblock%}

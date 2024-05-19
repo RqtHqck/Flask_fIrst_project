@@ -1,0 +1,23 @@
+{%extends 'base.html'%}
+
+{%block title%}
+App|{{article.title}}
+{%endblock%}
+
+{%block body%}
+<div class='container mt-5'>
+    <div class="alert alert-info">
+        <h1>{{article.title}}</h1>
+        <h4>Время: {{ article.date.strftime(' %H:%M ') }}</h4>
+        <h4>Дата: {{ article.date.strftime(' %d/%m/%Y') }}</h4>
+        <h2>{{article.intro}}</h2>
+    </div>
+    <div class='container mt-5'>
+        <h5>{{article.text}}</h5>
+        <a href="/posts/{{article.id}}/delete" class="btn btn-danger">Удалять</a>
+        <a href="/posts/{{article.id}}/update" class="btn btn-success">Редактировать</a>
+    </div>
+
+
+</div>
+{%endblock%}
